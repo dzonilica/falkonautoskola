@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kontakt – Auto Škola Falkon Kragujevac</title>
+<link rel="icon" type="image/png" href="logofalkon.png"/>
+<link rel="stylesheet" href="falkon.css"/>
+<style>
+.page-hero{padding:100px 8vw 64px;background:var(--white);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.page-hero::before{content:'KONTAKT';position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);color:rgba(15,15,15,.04);letter-spacing:8px;pointer-events:none;white-space:nowrap;}
+.contact-section{padding:80px 8vw;background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;max-width:1100px;margin:0 auto;align-items:start;}
+.info-block{margin-bottom:32px;}
+.info-label{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.info-value{font-size:18px;font-weight:500;color:var(--black);}
+.info-value a{color:var(--black);text-decoration:none;transition:color .2s;}
+.info-value a:hover{color:var(--red);}
+.hours-table{width:100%;border-collapse:collapse;margin-top:4px;}
+.hours-table td{padding:9px 0;font-size:14px;border-bottom:1px solid var(--border);}
+.hours-table td:first-child{color:var(--muted);}
+.hours-table td:last-child{text-align:right;font-weight:600;color:var(--black);}
+.hours-table tr:last-child td{border-bottom:none;}
+.map-container{width:100%;height:420px;overflow:hidden;border:1px solid var(--border);}
+.map-container iframe{width:100%;height:100%;border:0;filter:grayscale(20%);transition:filter .4s;}
+.map-container:hover iframe{filter:grayscale(0);}
+.phone-highlight{background:var(--black);color:#fff;padding:32px 36px;margin-top:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.ph-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);letter-spacing:2px;color:#fff;}
+.ph-number span{color:var(--red);}
+.ph-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.ph-cta{margin-left:auto;}
+.form-section{padding:80px 8vw;background:var(--white);border-top:1px solid var(--border);}
+.contact-form{max-width:680px;margin:44px auto 0;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:7px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--black);}
+.form-input,.form-select,.form-textarea{border:1.5px solid var(--border);background:var(--bg);padding:12px 16px;font-size:14px;font-family:'Barlow',sans-serif;color:var(--black);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--red);background:var(--white);}
+.form-textarea{height:120px;resize:vertical;}
+.form-submit{margin-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.form-note{font-size:12px;color:var(--muted);line-height:1.5;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.phone-highlight{flex-direction:column;text-align:center;}.ph-cta{margin-left:0;}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-logo"><img src="logofalkon.png" alt="Falkon"/></div>
+  <div class="pre-spinner"></div>
+  <div class="pre-text">Kontakt</div>
+</div>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><img src="logofalkon.png" alt="Falkon"/></a>
+  <div class="nav-links">
+    <a href="index.html">Početna</a>
+    <a href="onama.html">O nama</a>
+    <a href="cenovnik.html">Cenovnik</a>
+    <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a>
+    <a href="kontakt.html" class="active">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Zakaži termin</a>
+  <button class="nav-burger" aria-label="Meni"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-menu-close">✕</button>
+  <a href="index.html">Početna</a>
+  <a href="onama.html">O nama</a>
+  <a href="cenovnik.html">Cenovnik</a>
+  <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a>
+  <a href="kontakt.html" class="active">Kontakt</a>
+</div>
+
+<a href="tel:062170313" class="phone-fab" aria-label="Pozovite nas">
+  <div class="pulse-ring"></div>
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+</a>
+
+<div class="page-content">
+
+<div class="page-hero">
+  <span class="section-eyebrow reveal">Stupi u kontakt</span>
+  <h1 class="section-title reveal">PRONAĐI <span class="red">NAS</span></h1>
+  <p class="section-desc reveal">Poseti nas u školi, pozovi direktno. Odgovaramo na sve upite radnim danima od 08 do 20h.</p>
+</div>
+
+<section class="contact-section">
+  <div class="contact-grid">
+    <div>
+      <div class="info-block reveal">
+        <div class="info-label">Adresa</div>
+        <div class="info-value">Vojvode Mišića 9<br/>Kragujevac, Srbija</div>
+      </div>
+      <div class="info-block reveal" style="transition-delay:.1s">
+        <div class="info-label">Telefon</div>
+        <div class="info-value"><a href="tel:062170313">062 17 03 133</a></div>
+      </div>
+      <div class="info-block reveal" style="transition-delay:.12s">
+        <div class="info-label">Instagram</div>
+        <div class="info-value"><a href="https://www.instagram.com/falkonplus2023.kg/" target="_blank" style="display:flex;align-items:center;gap:8px;font-size:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>@falkonplus2023.kg</a></div>
+      </div>
+      <div class="info-block reveal" style="transition-delay:.15s">
+        <div class="info-label">Email</div>
+        <div class="info-value"><a href="/cdn-cgi/l/email-protection#31585f575e715044455e425a5e5d5057505d5a5e5f1f4342"><span class="__cf_email__" data-cfemail="523b3c343d123327263d21393d3e3334333e393d3c7c2021">[email&#160;protected]</span></a></div>
+      </div>
+      <div class="info-block reveal" style="transition-delay:.2s">
+        <div class="info-label">Radno vreme</div>
+        <table class="hours-table">
+          <tr><td>Ponedeljak – Petak</td><td>08:00 – 20:00</td></tr>
+          <tr><td>Subota</td><td>08:00 – 14:00</td></tr>
+          <tr><td>Nedelja</td><td>Zatvoreno</td></tr>
+        </table>
+      </div>
+      <div class="phone-highlight reveal" style="transition-delay:.25s">
+        <div>
+          <div class="ph-label">Pozovi odmah</div>
+          <div class="ph-number"><span>062</span> 17 03 133</div>
+        </div>
+        <div class="ph-cta"><a href="tel:062170313" class="btn-red">Pozovi →</a></div>
+      </div>
+    </div>
+
+    <div class="reveal-r">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2897.3!2d20.9127!3d44.0148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4756823a3f5a5555%3A0xabc123!2sVojvode+Mi%C5%A1i%C4%87a+9%2C+Kragujevac!5e0!3m2!1ssr!2srs!4v1680000000000!5m2!1ssr!2srs"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div style="margin-top:14px;display:flex;justify-content:flex-end;">
+        <a href="https://maps.google.com/?q=Vojvode+Misica+9+Kragujevac" target="_blank"
+           style="font-size:12px;color:var(--red);font-weight:700;letter-spacing:1px;text-decoration:none;">
+          Otvori u Google Mapama →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <div style="text-align:center;" class="reveal">
+    <span class="section-eyebrow">Zakaži termin</span>
+    <h2 class="section-title">POZOVI <span style="color:var(--red)">NAS DIREKTNO</span></h2>
+    <p class="section-desc" style="margin:14px auto 0;text-align:center;">
+      Kontaktiraj nas telefonom ili посети nas u školi.
+    </p>
+    <div style="margin-top: 44px;">
+      <a href="tel:062170313" class="btn-red">Pozovi: 062 17 03 133 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logo">AUTO ŠKOLA <span>FALKON</span></div>
+  <div class="footer-links" style="display:flex;gap:24px;flex-wrap:wrap;">
+    <a href="index.html">Početna</a>
+    <a href="onama.html">O nama</a>
+    <a href="cenovnik.html">Cenovnik</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <div>© 2023 Auto Škola Falkon · Vojvode Mišića 9, Kragujevac · 062 17 03 133</div>
+</footer>
+
+</div><!-- end page-content -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="falkon.js"></script>

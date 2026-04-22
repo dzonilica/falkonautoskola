@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Auto Škola Falkon – Kragujevac</title>
+<link rel="icon" type="image/png" href="logofalkon.png"/>
+<link rel="stylesheet" href="falkon.css"/>
+<style>
+/* ══ HERO ══ */
+.hero{
+  height:93svh; min-height:81vh;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 8vw;
+}
+/* Slideshow background */
+.hero-slides{
+  position:absolute; inset:0; z-index:0;
+}
+.hero-slide{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  opacity:0;
+  transition:opacity 1.6s ease-in-out;
+}
+.hero-slide.active{ opacity:1; }
+/* Dark overlay so text is legible */
+.hero-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(
+    105deg,
+    rgba(5,5,5,.75) 0%,
+    rgba(5,5,5,.55) 50%,
+    rgba(5,5,5,.35) 100%
+  );
+}
+/* Graph grid on top of overlay */
+.hero-graph{
+  position:absolute; inset:0; z-index:2;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:44px 44px;
+  pointer-events:none;
+}
+/* Content */
+.hero-content{position:relative;z-index:10;}
+.hero-eyebrow{
+  font-size:11px; font-weight:700; letter-spacing:5px;
+  text-transform:uppercase; color:var(--red);
+  opacity:0; animation:fadeUp .7s .2s forwards;
+  display:flex; align-items:center; gap:8px; margin-bottom:32px;
+}
+.hero-eyebrow::before{content:''; width:26px; height:1.5px; background:var(--red);}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(68px,14vw,190px);
+  line-height:.88; letter-spacing:2px; color:#fff;
+  margin:-5px 0 18px; position:relative; z-index:11;
+}
+.hero-title .line{overflow:hidden; display:block;}
+.hero-title .word{
+  display:inline-block;
+  opacity:0; transform:translateY(110%);
+  animation:slW .9s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-title .w1{animation-delay:.15s;}
+.hero-title .w2{animation-delay:.3s; color:var(--red);}
+.hero-title .w3{animation-delay:.5s;}
+@keyframes slW{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:translateY(0)}}
+.hero-sub{
+  font-size:clamp(14px,1.6vw,17px); font-weight:300;
+  color:rgba(255,255,255,.75); max-width:430px; line-height:1.78;
+  opacity:0; animation:fadeUp .7s .85s forwards;
+}
+.hero-ctas{
+  display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .7s 1.05s forwards;
+}
+/* Slide indicator dots */
+.hero-dots{
+  position:absolute; bottom:90px; left:8vw; z-index:10;
+  display:flex; gap:8px;
+  opacity:0; animation:fadeIn 1s 1.4s forwards;
+}
+.hero-dot{
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.3); border:none;
+  transition:background .3s, transform .3s; cursor:none;
+}
+.hero-dot.active{background:var(--red); transform:scale(1.3);}
+/* Stats row */
+.hero-stats-row{
+  position:absolute; bottom:0; left:8vw; right:8vw;
+  display:flex; gap:0;
+  border-top:1px solid rgba(255,255,255,.12);
+  opacity:0; animation:fadeUp .7s 1.3s forwards;
+  z-index:10;
+}
+.hstat{padding:14px 28px 14px 0; margin-right:28px; border-right:1px solid rgba(255,255,255,.12);}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-family:'Bebas Neue',sans-serif; font-size:32px; color:#fff; letter-spacing:1px;}
+.hstat-n span{color:var(--red);}
+.hstat-l{font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.45);}
+.hero-scroll{
+  position:absolute; bottom:72px; right:8vw; z-index:10;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  opacity:0; animation:fadeIn 1s 1.7s forwards; writing-mode:vertical-rl;
+}
+.hero-scroll-line{
+  width:1px; height:40px;
+  background:linear-gradient(rgba(255,255,255,.45),transparent);
+  animation:sP 1.6s 2s ease-in-out infinite;
+}
+@keyframes sP{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.4;transform:scaleY(.6)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ══ INTRO ══ */
+.intro-wrap{max-width:1260px;margin:0 auto;padding:80px 8vw;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.intro-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6vw,76px);line-height:.92;color:var(--black);letter-spacing:1px;}
+.intro-heading .red{color:var(--red);}
+.intro-text{font-size:15px;color:#666;line-height:1.8;margin-top:18px;max-width:420px;}
+.checks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px;}
+.checks li{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;}
+.check-icon{width:18px;height:18px;flex-shrink:0;}
+.intro-img-wrap{position:relative;}
+.intro-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(15%);transition:filter .4s;display:block;}
+.intro-img:hover{filter:grayscale(0);}
+.intro-badge{position:absolute;bottom:-16px;left:-16px;background:var(--red);color:#fff;padding:13px 20px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;box-shadow:0 4px 20px rgba(200,48,58,.3);}
+
+/* ══ FEATURE ICONS – SVG ══ */
+.feat-icon-wrap{width:44px;height:44px;margin-bottom:16px;}
+.feat-icon-wrap svg{width:100%;height:100%;}
+
+/* ══ HOW ══ */
+.how-section{padding:80px 8vw;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.how-header{text-align:center;margin-bottom:56px;}
+.why-section{padding:80px 8vw;}
+.reviews-section{padding:80px 8vw;background:var(--bg2);border-top:1px solid var(--border);}
+.reviews-header{text-align:center;margin-bottom:50px;}
+.cta-banner{background:var(--black);padding:80px 8vw;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.cta-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,64px);color:#fff;letter-spacing:1px;line-height:.92;}
+.cta-text span{color:var(--red);}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+
+@media(max-width:960px){
+  .intro-wrap{grid-template-columns:1fr;gap:40px;}
+  .cta-banner{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER: logo only, light bg -->
+<div id="preloader">
+  <div class="pre-logo">
+    <img src="logofalkon.png" alt="Falkon"/>
+  </div>
+  <div class="pre-spinner"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="logofalkon.png" alt="Falkon"/></a>
+  <div class="nav-links">
+    <a href="index.html">Početna</a>
+    <a href="onama.html">O nama</a>
+    <a href="cenovnik.html">Cenovnik</a>
+    <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Zakaži termin</a>
+  <button class="nav-burger" aria-label="Meni"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-menu-close">✕</button>
+  <a href="index.html">Početna</a>
+  <a href="onama.html">O nama</a>
+  <a href="cenovnik.html">Cenovnik</a>
+  <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="kontakt.html" style="color:var(--red);margin-top:16px;font-size:28px;">Zakaži termin</a>
+</div>
+
+<!-- PHONE FAB -->
+<a href="tel:062170313" class="phone-fab" aria-label="Pozovite nas">
+  <div class="pulse-ring"></div>
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+</a>
+
+<div class="page-content">
+
+<!-- HERO with background slideshow -->
+<section class="hero">
+  <!-- Slides -->
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('hero_car1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('hero_car2.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-graph"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">Kragujevac · B &amp; A Kategorija</div>
+    <h1 class="hero-title">
+      <span class="line"><span class="word w1">FALKON</span>&nbsp;<span class="word w2">PLUS</span></span>
+      <span class="line"><span class="word w3">2023</span></span>
+    </h1>
+    <p class="hero-sub">Tvoj put do slobode počinje ovde. Profesionalna obuka u Kragujevcu uz individualan pristup svakom kandidatu.</p>
+    <div class="hero-ctas">
+      <a href="kontakt.html" class="btn-red">Cena na upit</a>
+      <a href="kontakt.html" class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;">Zakaži termin</a>
+    </div>
+  </div>
+
+  <!-- Slide dots -->
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+  </div>
+
+  <!-- Stats -->
+  <div class="hero-stats-row">
+    <div class="hstat"><div class="hstat-n"><span class="counter" data-target="600">0</span><span>+</span></div><div class="hstat-l">Polaznika</div></div>
+    <div class="hstat"><div class="hstat-n"><span class="counter" data-target="95">0</span><span>%</span></div><div class="hstat-l">Prolaznost</div></div>
+    <div class="hstat"><div class="hstat-n"><span class="counter" data-target="3">0</span><span>+</span></div><div class="hstat-l">Godine rada</div></div>
+    <div class="hstat"><div class="hstat-n"><span class="counter" data-target="3">0</span></div><div class="hstat-l">Instruktora</div></div>
+  </div>
+
+  <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Skroluj</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar"><div class="marquee-track">
+  <span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">TEORIJSKA OBUKA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">PRAKTIČNA VOŽNJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">KRAGUJEVAC <span class="mq-dot">◆</span></span>
+  <span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span>
+  <span class="mq-item">ISKUSNI INSTRUKTORI <span class="mq-dot">◆</span></span>
+  <span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">TEORIJSKA OBUKA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">PRAKTIČNA VOŽNJA <span class="mq-dot">◆</span></span>
+  <span class="mq-item">KRAGUJEVAC <span class="mq-dot">◆</span></span>
+  <span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span>
+  <span class="mq-item">ISKUSNI INSTRUKTORI <span class="mq-dot">◆</span></span>
+</div></div>
+
+<!-- INTRO -->
+<section style="background:var(--white);border-bottom:1px solid var(--border);">
+  <div class="intro-wrap">
+    <div class="reveal-l">
+      <div style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">O Auto Školi Falkon</div>
+      <h2 class="intro-heading">TVOJ PUT DO<br><span class="red">SLOBODE</span><br>POČINJE OVDE</h2>
+      <p class="intro-text">Auto Škola Falkon je moderan centar za obuku vozača u Kragujevcu, osnovan 2023. godine. Obučavamo kandidate za B i A kategoriju uz individualan pristup svakom polazniku.</p>
+      <ul class="checks">
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sertifikovani instruktori sa višegodišnjim iskustvom
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Moderna vozila sa dvostrukom kontrolom
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Fleksibilno zakazivanje prilagođeno tebi
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Transparentne cene, plaćanje na rate
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Besplatan lekarski pregled uz upis
+        </li>
+      </ul>
+      <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="onama.html" class="btn-red">O nama →</a>
+        <a href="kontakt.html" class="btn-outline">Kontakt</a>
+      </div>
+    </div>
+    <div class="intro-img-wrap reveal-r">
+      <img class="intro-img" src="team.jpeg" alt="Tim Auto Škole Falkon"/>
+      <div class="intro-badge">🏆 Kragujevac</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROAD MILESTONE -->
+
+
+<!-- CATEGORIES -->
+
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-header">
+    <span class="section-eyebrow reveal">Proces obuke</span>
+    <h2 class="section-title reveal">PUT DO <span style="color:var(--red)">DOZVOLE</span></h2>
+    <p class="section-desc reveal" style="margin:14px auto 0;text-align:center;">Od upisa do vozačke dozvole za 2–3 meseca.</p>
+  </div>
+  <div class="steps-container">
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-circle">01</div>
+        <div class="step-label">Upis</div>
+        <div class="step-desc">Donesi ličnu kartu. Potpisuješ ugovor i krećeš odmah.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">02</div>
+        <div class="step-label">Teorija</div>
+        <div class="step-desc">40 časova propisa, znakova i situacija. Testovi online za pripremu.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">03</div>
+        <div class="step-label">Teorijski ispit</div>
+        <div class="step-desc">40 pitanja na MUP-u. Zakazujemo mi za tebe.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">04</div>
+        <div class="step-label">Vožnja</div>
+        <div class="step-desc">Praktična obuka uz iskusnog instruktora na ispitnim rutama.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+        <div class="step-label">Dozvola!</div>
+        <div class="step-desc">Praktični ispit — dokumentaciju priprema škola za tebe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-cell reveal"><div class="stat-n"><span class="counter" data-target="600">0</span><span class="suf">+</span></div><div class="stat-l">Uspešnih polaznika</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.1s"><div class="stat-n"><span class="counter" data-target="95">0</span><span class="suf">%</span></div><div class="stat-l">Prolaznost</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.2s"><div class="stat-n"><span class="counter" data-target="3">0</span><span class="suf">+</span></div><div class="stat-l">Godine rada</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.3s"><div class="stat-n"><span class="counter" data-target="3">0</span></div><div class="stat-l">Instruktora</div></div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div style="margin-bottom:44px;" class="reveal">
+    <span class="section-eyebrow">Zašto Falkon?</span>
+    <h2 class="section-title">RAZLOZI ZA<br><span style="color:var(--cognac)">IZBOR</span></h2>
+  </div>
+  <div class="feat-grid">
+    <!-- SVG icons, no emoji -->
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 4l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 16h12z"/>
+        </svg>
+      </div>
+      <div class="feat-title">Sertifikovana obuka</div>
+      <div class="feat-text">Program odobren od strane MUP-a. Garantujemo obuku vozača najvišeg kvaliteta u skladu sa zakonom.</div>
+    </div>
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="20" width="40" height="16" rx="4"/>
+          <path d="M8 20v-4a6 6 0 0112 0v4M28 20v-4a6 6 0 0112 0v4"/>
+          <circle cx="12" cy="36" r="4" fill="#c8303a" stroke="none"/>
+          <circle cx="36" cy="36" r="4" fill="#c8303a" stroke="none"/>
+          <path d="M4 28h40"/>
+        </svg>
+      </div>
+      <div class="feat-title">Moderna vozila</div>
+      <div class="feat-text">VW Golf 7 sa dvostrukom kontrolom. Bezbedna, moderna vozila za udobnu i efikasnu obuku.</div>
+    </div>
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="18"/>
+          <polyline points="24,12 24,24 32,30"/>
+        </svg>
+      </div>
+      <div class="feat-title">Brzi rok</div>
+      <div class="feat-text">A kategorija za mesec dana, B kategorija za 2 meseca. Prilagodimo raspored tvom životu.</div>
+    </div>
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="10" width="36" height="28" rx="4"/>
+          <path d="M16 10V6M32 10V6M6 22h36"/>
+          <path d="M14 32h6M26 32h8"/>
+        </svg>
+      </div>
+      <div class="feat-title">Plaćanje na rate</div>
+      <div class="feat-text">Gotovinom, čekovima ili administrativnom zabranom. Bez skrivenih troškova — sve transparentno.</div>
+    </div>
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 4C15 4 8 11 8 20c0 12 16 24 16 24s16-12 16-24c0-9-7-16-16-16z"/>
+          <circle cx="24" cy="20" r="5"/>
+        </svg>
+      </div>
+      <div class="feat-title">Besplatan pregled</div>
+      <div class="feat-text">Uz upis organizujemo besplatan lekarski pregled i kurs prve pomoći — bez dodatnih troškova.</div>
+    </div>
+    <div class="feat-cell reveal">
+      <div class="feat-icon-wrap">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 38l8-8 6 6 10-14 8 6"/>
+          <rect x="4" y="6" width="40" height="36" rx="2"/>
+          <path d="M4 16h40"/>
+        </svg>
+      </div>
+      <div class="feat-title">Ispitne rute</div>
+      <div class="feat-text">Vežbamo na realnim ispitnim rutama u Kragujevcu. Znaš šta te čeka na ispitnom danu.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-text reveal-l">KRENI PREMA<br><span>VOZAČKOJ</span><br>DOZVOLI DANAS</div>
+  <div class="cta-actions reveal-r">
+    <a href="cenovnik.html" class="btn-red">Vidi cenovnik →</a>
+    <a href="kontakt.html" style="color:rgba(255,255,255,.6);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,.2);">Pozovi: 062 17 03 133</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">AUTO ŠKOLA <span>FALKON</span></div>
+  <div class="footer-links" style="display:flex;gap:24px;flex-wrap:wrap;">
+    <a href="index.html">Početna</a>
+    <a href="onama.html">O nama</a>
+    <a href="cenovnik.html">Cenovnik</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="https://www.instagram.com/falkonplus2023.kg/" target="_blank" style="display:flex;align-items:center;gap:6px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div>© 2023 Auto Škola Falkon · Vojvode Mišića 9, Kragujevac</div>
+</footer>
+
+</div><!-- end page-content -->
+
+<script src="falkon.js"></script>
+<script>
+// Hero slideshow
+var slideIndex = 0;
+var slides = document.querySelectorAll('.hero-slide');
+var dots = document.querySelectorAll('.hero-dot');
+var slideTimer;
+
+function goSlide(n) {
+  slides[slideIndex].classList.remove('active');
+  dots[slideIndex].classList.remove('active');
+  slideIndex = (n !== undefined) ? n : (slideIndex + 1) % slides.length;
+  slides[slideIndex].classList.add('active');
+  dots[slideIndex].classList.add('active');
+  clearInterval(slideTimer);
+  slideTimer = setInterval(function(){ goSlide(); }, 5000);
+}
+
+slideTimer = setInterval(function(){ goSlide(); }, 5000);
+</script>
+</body>
+</html>
