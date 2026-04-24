@@ -102,4 +102,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const dw = document.querySelector('.road-dash-strip');
   if(dw){ for(let i=0;i<28;i++){ const d=document.createElement('div'); d.className='road-dash-item'; dw.appendChild(d); } }
 
+  /* ── MUSIC TOGGLE ── */
+  const musicBtn = document.getElementById('musicBtn');
+  const bgMusic = document.getElementById('bgMusic');
+  if (musicBtn && bgMusic) {
+    let playing = false;
+    musicBtn.addEventListener('click', () => {
+      playing = !playing;
+      if (playing) {
+        bgMusic.play().catch(() => { playing = false; musicBtn.classList.remove('playing'); });
+        musicBtn.classList.add('playing');
+        musicBtn.setAttribute('aria-label', 'Isključi muziku');
+      } else {
+        bgMusic.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.setAttribute('aria-label', 'Uključi muziku');
+      }
+    });
+  }
+
 });

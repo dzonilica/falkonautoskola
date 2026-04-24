@@ -79,6 +79,23 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9997;b
 .mobile-menu-close{position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.5);font-size:28px;padding:8px;}
 @media(max-width:960px){.nav-links,.nav-cta{display:none;}.nav-burger{display:flex;}.mobile-menu{display:flex;}}
 
+/* ── NAV ACTIONS (right-side group) ── */
+.nav-actions{display:flex;align-items:center;gap:10px;}
+
+/* ── MUSIC BTN ── */
+.music-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.55);transition:background .25s,color .25s,border-color .25s;flex-shrink:0;}
+.music-btn:hover{background:rgba(200,48,58,.18);border-color:rgba(200,48,58,.7);color:#fff;}
+.music-btn.playing{background:rgba(200,48,58,.22);border-color:var(--red);color:var(--red);}
+.music-btn svg{width:15px;height:15px;display:block;}
+.eq-bar{transform-box:fill-box;transform-origin:bottom center;}
+.music-btn.playing .eq-bar:nth-child(1){animation:eqB .65s ease-in-out infinite alternate;}
+.music-btn.playing .eq-bar:nth-child(2){animation:eqB .45s ease-in-out .12s infinite alternate;}
+.music-btn.playing .eq-bar:nth-child(3){animation:eqB .55s ease-in-out .06s infinite alternate;}
+@keyframes eqB{0%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
+.navbar.nav-light:not(.scrolled) .music-btn{color:rgba(15,15,15,.45);border-color:rgba(15,15,15,.18);background:rgba(15,15,15,.05);}
+.navbar.nav-light:not(.scrolled) .music-btn:hover{color:var(--black);border-color:rgba(15,15,15,.4);}
+.navbar.nav-light:not(.scrolled) .music-btn.playing{color:var(--red);border-color:var(--red);background:rgba(200,48,58,.08);}
+
 /* ── PHONE FAB ── */
 .phone-fab{position:fixed;left:22px;bottom:22px;z-index:5000;width:50px;height:50px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,48,58,.45);text-decoration:none;transition:transform .25s,box-shadow .25s;}
 .phone-fab:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(200,48,58,.6);}

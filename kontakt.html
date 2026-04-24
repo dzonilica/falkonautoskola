@@ -60,8 +60,17 @@
     <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a>
     <a href="kontakt.html" class="active">Kontakt</a>
   </div>
-  <a href="kontakt.html" class="nav-cta">Zakaži termin</a>
-  <button class="nav-burger" aria-label="Meni"><span></span><span></span><span></span></button>
+  <div class="nav-actions">
+    <a href="kontakt.html" class="nav-cta">Zakaži termin</a>
+    <button class="music-btn" id="musicBtn" aria-label="Uključi muziku" title="Muzika">
+      <svg viewBox="0 0 16 16" fill="currentColor">
+        <rect class="eq-bar" x="1" y="5" width="3" height="9" rx="1.5"/>
+        <rect class="eq-bar" x="6.5" y="2" width="3" height="12" rx="1.5"/>
+        <rect class="eq-bar" x="12" y="5" width="3" height="9" rx="1.5"/>
+      </svg>
+    </button>
+    <button class="nav-burger" aria-label="Meni"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div class="mobile-menu">
   <button class="mobile-menu-close">✕</button>
@@ -166,4 +175,5 @@
 
 </div><!-- end page-content -->
 
+<audio id="bgMusic" loop preload="none"><source src="Just Jammin'.mp3" type="audio/mpeg"></audio>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="falkon.js"></script>
