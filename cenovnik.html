@@ -42,6 +42,31 @@
 .note-banner{max-width:1160px;margin:32px auto 0;background:rgba(200,48,58,.04);border:1px solid rgba(200,48,58,.12);padding:20px 24px;font-size:13px;color:#555;line-height:1.7;}
 .note-banner strong{color:var(--red);}
 
+/* Category info — inline below cards in each tab */
+.cat-info-inline{margin-top:32px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--red);max-width:1160px;margin-left:auto;margin-right:auto;display:grid;grid-template-columns:1.05fr 1.4fr;gap:0;overflow:hidden;}
+.cat-info-inline.cog{border-left-color:var(--cognac);}
+.cii-left{padding:32px 32px;background:linear-gradient(135deg,var(--bg) 0%,var(--white) 100%);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:14px;}
+.cii-badge{font-family:'Bebas Neue',sans-serif;font-size:62px;line-height:.9;letter-spacing:2px;color:var(--red);}
+.cat-info-inline.cog .cii-badge{color:var(--cognac);}
+.cii-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.cii-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--black);line-height:1.1;}
+.cii-desc{font-size:14px;color:#555;line-height:1.75;}
+.cii-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.cii-chip{display:inline-flex;align-items:baseline;gap:6px;background:var(--white);border:1px solid var(--border);padding:7px 13px;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.cii-chip strong{color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;font-weight:400;}
+.cat-info-inline.cog .cii-chip strong{color:var(--cognac);}
+.cii-right{padding:32px 32px;display:flex;flex-direction:column;gap:18px;}
+.cii-section-title{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;}
+.cat-info-inline.cog .cii-section-title{color:var(--cognac);}
+.cii-section-title::before{content:'';width:18px;height:1.5px;background:currentColor;}
+.cii-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.cii-list li{display:flex;gap:12px;font-size:13.5px;color:#444;line-height:1.6;padding-bottom:10px;border-bottom:1px solid rgba(15,15,15,.05);}
+.cii-list li:last-child{border-bottom:none;padding-bottom:0;}
+.cii-list li::before{content:'▸';color:var(--red);font-weight:700;flex-shrink:0;font-size:14px;}
+.cat-info-inline.cog .cii-list li::before{color:var(--cognac);}
+.cii-list li strong{color:var(--black);font-weight:700;}
+@media(max-width:780px){.cat-info-inline{grid-template-columns:1fr;}.cii-left{border-right:none;border-bottom:1px solid var(--border);}}
+
 /* FAQ */
 .faq-section{padding:72px 8vw;background:var(--white);border-top:1px solid var(--border);}
 .faq-list{max-width:780px;margin:40px auto 0;}
@@ -77,7 +102,7 @@
   </div>
 </nav>
 <div class="mobile-menu"><button class="mobile-menu-close">✕</button><a href="index.html">Početna</a><a href="onama.html">O nama</a><a href="cenovnik.html" class="active">Cenovnik</a><a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank">Testovi ↗</a><a href="kontakt.html">Kontakt</a></div>
-<a href="tel:062170313" class="phone-fab"><div class="pulse-ring"></div><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></a>
+<a href="tel:0621703133" class="phone-fab"><div class="pulse-ring"></div><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></a>
 <div class="page-content">
 
 <div class="page-hero">
@@ -86,7 +111,7 @@
   <p class="section-desc reveal">Cena se formira individualno — zavisi od kategorija koje već posedujete. Kontaktirajte nas za tačnu i personalizovanu ponudu.</p>
 </div>
 
-<div class="marquee-bar"><div class="marquee-track"><span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A1 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span><span class="mq-item">BESPLATAN LEKARSKI PREGLED <span class="mq-dot">◆</span></span><span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A1 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span><span class="mq-item">BESPLATAN LEKARSKI PREGLED <span class="mq-dot">◆</span></span></div></div>
+<div class="marquee-bar"><div class="marquee-track"><span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A1 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A2 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span><span class="mq-item"> <span class="mq-dot">◆</span></span><span class="mq-item">B KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A1 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">A2 KATEGORIJA <span class="mq-dot">◆</span></span><span class="mq-item">PLAĆANJE NA RATE <span class="mq-dot">◆</span></span><span class="mq-item"> </span></div></div>
 
 <section class="pricing-section">
   <div style="max-width:1160px;margin:0 auto;">
@@ -97,6 +122,7 @@
     <div class="cat-tabs reveal">
       <button class="cat-tab active" onclick="showCat('b')">B Kategorija</button>
       <button class="cat-tab" onclick="showCat('a1')">A1 Kategorija</button>
+      <button class="cat-tab" onclick="showCat('a2')">A2 Kategorija</button>
       <button class="cat-tab" onclick="showCat('a')">A Kategorija</button>
     </div>
 
@@ -106,8 +132,8 @@
         <div class="price-card reveal">
           <div class="price-head"><div class="price-if">Bez vozačke dozvole</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
@@ -115,8 +141,8 @@
         <div class="price-card reveal">
           <div class="price-head"><div class="price-if">Poseduje AM ili A1</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (35h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (35č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
@@ -124,8 +150,8 @@
         <div class="price-card reveal">
           <div class="price-head"><div class="price-if">Poseduje A2 ili A</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (30h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (30č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
@@ -134,7 +160,7 @@
           <div class="price-head"><div class="price-if">Poseduje B1</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
             <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (30h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (30č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
@@ -142,8 +168,8 @@
         <div class="price-card reveal">
           <div class="price-head"><div class="price-if">Poseduje M</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (25h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (25č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
@@ -151,11 +177,34 @@
         <div class="price-card reveal">
           <div class="price-head"><div class="price-if">Poseduje F</div><div class="price-tag">B Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (20h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (20h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (20č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (20č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;">Pošalji upit →</a></div>
+        </div>
+      </div>
+      <div class="cat-info-inline reveal">
+        <div class="cii-left">
+          <div class="cii-badge">B</div>
+          <div class="cii-eyebrow">B Kategorija</div>
+          <div class="cii-title">Putnička i teretna vozila</div>
+          <div class="cii-desc">Vozila čija najveća dozvoljena masa <strong>ne prelazi 3.500 kg</strong> i koja imaju najviše <strong>9 sedišta</strong> uključujući vozačevo. Najtraženija kategorija — auto za svakodnevnu vožnju.</div>
+          <div class="cii-meta">
+            <span class="cii-chip">Upis <strong>16 god.</strong></span>
+            <span class="cii-chip">Ispit <strong>17 god.</strong></span>
+            <span class="cii-chip">Teorija <strong>40č</strong></span>
+            <span class="cii-chip">Vožnja <strong>40č</strong></span>
+          </div>
+        </div>
+        <div class="cii-right">
+          <div class="cii-section-title">Uslovi za upis</div>
+          <ul class="cii-list">
+            <li><span><strong>Lična karta</strong> — obavezna pri upisu, obuci i polaganju ispita.</span></li>
+            <li><span>Za <strong>maloletnike</strong> (od 16 god.) — potreban je potpis roditelja ili staratelja na ugovoru.</span></li>
+            <li><span><strong>Lekarsko uverenje</strong> pre početka praktične obuke.</span></li>
+            <li><span>Sa <strong>AM ili A1</strong>: 7č teorije + 35č vožnje. Sa <strong>A2 ili A</strong>: 7č teorije + 30č vožnje.</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -166,8 +215,8 @@
         <div class="price-card cog reveal">
           <div class="price-head"><div class="price-if">Bez vozačke dozvole</div><div class="price-tag">A1 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (20h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (20č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -176,7 +225,7 @@
           <div class="price-head"><div class="price-if">Poseduje AM</div><div class="price-tag">A1 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
             <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -184,11 +233,99 @@
         <div class="price-card cog reveal">
           <div class="price-head"><div class="price-if">Poseduje B</div><div class="price-tag">A1 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (20h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (20č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+      </div>
+      <div class="cat-info-inline cog reveal">
+        <div class="cii-left">
+          <div class="cii-badge">A1</div>
+          <div class="cii-eyebrow">A1 Kategorija</div>
+          <div class="cii-title">Lakši motocikli</div>
+          <div class="cii-desc">Motocikli čija radna zapremina motora <strong>nije veća od 125 cm³</strong> i snage motora <strong>do 11 kW</strong>, kao i teški tricikli čija snaga motora ne prelazi 15 kW. Idealna prva motociklistička kategorija.</div>
+          <div class="cii-meta">
+            <span class="cii-chip">Upis <strong>15 god.</strong></span>
+            <span class="cii-chip">Ispit <strong>16 god.</strong></span>
+            <span class="cii-chip">Teorija <strong>40č</strong></span>
+            <span class="cii-chip">Vožnja <strong>20č</strong></span>
+          </div>
+        </div>
+        <div class="cii-right">
+          <div class="cii-section-title">Uslovi za upis</div>
+          <ul class="cii-list">
+            <li><span><strong>Lična karta</strong> — obavezna pri upisu, teorijskoj obuci i polaganju ispita.</span></li>
+            <li><span>Za <strong>maloletnike</strong> — saglasnost roditelja/staratelja i potpis na ugovor.</span></li>
+            <li><span><strong>Lekarsko uverenje</strong> pre praktične obuke.</span></li>
+            <li><span>Sa <strong>B kategorijom</strong>: 7č teorije + 20č vožnje. Sa <strong>AM</strong>: bez teorije, samo 7č vožnje.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- A2 KATEGORIJA -->
+    <div class="pricing-group" id="grp-a2">
+      <div class="pricing-grid">
+        <div class="price-card cog reveal">
+          <div class="price-head"><div class="price-if">Bez vozačke dozvole</div><div class="price-tag">A2 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
+          <div class="price-body">
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (30č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
+          </div>
+          <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+        <div class="price-card cog reveal">
+          <div class="price-head"><div class="price-if">Poseduje AM</div><div class="price-tag">A2 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
+          <div class="price-body">
+            <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (14č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
+          </div>
+          <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+        <div class="price-card cog reveal">
+          <div class="price-head"><div class="price-if">Poseduje A1</div><div class="price-tag">A2 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
+          <div class="price-body">
+            <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
+          </div>
+          <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+        <div class="price-card cog reveal">
+          <div class="price-head"><div class="price-if">Poseduje B</div><div class="price-tag">A2 Kat.</div><a href="kontakt.html" class="price-big"></a></div>
+          <div class="price-body">
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (30č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
+          </div>
+          <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+      </div>
+      <div class="cat-info-inline cog reveal">
+        <div class="cii-left">
+          <div class="cii-badge">A2</div>
+          <div class="cii-eyebrow">A2 Kategorija</div>
+          <div class="cii-title">Srednji motocikli</div>
+          <div class="cii-desc">Motocikli čija snaga motora <strong>nije veća od 35 kW</strong> i odnos snaga/masa do <strong>0,2 kW/kg</strong>. Sledeći logičan korak ka A kategoriji bez dugog čekanja.</div>
+          <div class="cii-meta">
+            <span class="cii-chip">Upis <strong>17 god.</strong></span>
+            <span class="cii-chip">Ispit <strong>18 god.</strong></span>
+            <span class="cii-chip">Teorija <strong>40č</strong></span>
+            <span class="cii-chip">Vožnja <strong>30č</strong></span>
+          </div>
+        </div>
+        <div class="cii-right">
+          <div class="cii-section-title">Uslovi za upis</div>
+          <ul class="cii-list">
+            <li><span><strong>Lična karta</strong> — obavezna pri upisu, teoriji, vožnji i polaganju ispita.</span></li>
+            <li><span><strong>Lekarsko uverenje</strong> pre praktične obuke.</span></li>
+            <li><span>Sa <strong>B kategorijom</strong>: 7č teorije + 30č vožnje.</span></li>
+            <li><span>Sa <strong>A1</strong>: bez teorije + 7č vožnje. Sa <strong>AM</strong>: bez teorije + 14č vožnje.</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -199,8 +336,8 @@
         <div class="price-card cog reveal">
           <div class="price-head"><div class="price-if">Bez vozačke dozvole</div><div class="price-tag">A Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -209,7 +346,7 @@
           <div class="price-head"><div class="price-if">Poseduje AM</div><div class="price-tag">A Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
             <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (20h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (20č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -218,7 +355,7 @@
           <div class="price-head"><div class="price-if">Poseduje A1</div><div class="price-tag">A Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
             <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (14h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (14č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -227,7 +364,7 @@
           <div class="price-head"><div class="price-if">Poseduje A2</div><div class="price-tag">A Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
             <div class="price-row"><div class="price-row-l">Teorijska obuka</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">NEMA</div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
@@ -235,11 +372,34 @@
         <div class="price-card cog reveal">
           <div class="price-head"><div class="price-if">Poseduje B</div><div class="price-tag">A Kat.</div><a href="kontakt.html" class="price-big"></a></div>
           <div class="price-body">
-            <div class="price-row"><div class="price-row-l">Teorijska obuka (7h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
-            <div class="price-row"><div class="price-row-l">Praktična obuka (40h)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Teorijska obuka (7č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
+            <div class="price-row"><div class="price-row-l">Praktična obuka (40č)</div><div class="price-row-v"><a href="kontakt.html">Na upit</a></div></div>
             <div class="price-row"><div class="price-row-l">Lekarski pregled</div><div class="price-row-v" style="color:var(--green);font-style:normal;font-weight:700">GRATIS</div></div>
           </div>
           <div class="price-card-cta"><a href="kontakt.html" class="btn-red" style="font-size:11px;padding:10px 20px;background:var(--cognac)">Pošalji upit →</a></div>
+        </div>
+      </div>
+      <div class="cat-info-inline cog reveal">
+        <div class="cii-left">
+          <div class="cii-badge">A</div>
+          <div class="cii-eyebrow">A Kategorija</div>
+          <div class="cii-title">Svi motocikli — bez ograničenja</div>
+          <div class="cii-desc">Motocikli i teški tricikli čija snaga motora <strong>prelazi 15 kW</strong> — bez ograničenja zapremine ili snage. Najjača kategorija za prave ljubitelje motora.</div>
+          <div class="cii-meta">
+            <span class="cii-chip">Upis <strong>23 god.</strong></span>
+            <span class="cii-chip">Ispit <strong>24 god.</strong></span>
+            <span class="cii-chip">Teorija <strong>40č</strong></span>
+            <span class="cii-chip">Vožnja <strong>40č</strong></span>
+          </div>
+        </div>
+        <div class="cii-right">
+          <div class="cii-section-title">Uslovi za upis</div>
+          <ul class="cii-list">
+            <li><span><strong>Lična karta</strong> i <strong>lekarsko uverenje</strong> pre početka praktične obuke.</span></li>
+            <li><span>Sa <strong>B kategorijom</strong>: 7č teorije + 40č vožnje.</span></li>
+            <li><span>Sa <strong>A2</strong>: bez teorije + samo 7č vožnje. Sa <strong>A1</strong>: 14č vožnje. Sa <strong>AM</strong>: 20č vožnje.</span></li>
+            <li><span>Obezbeđujemo <strong>opremu</strong>: kacigu, potkapu, rukavice i bluetooth komunikaciju.</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -255,9 +415,9 @@
 <section class="faq-section">
   <div style="text-align:center;margin-bottom:44px;" class="reveal"><span class="section-eyebrow">Pitanja i odgovori</span><h2 class="section-title">ČESTA <span style="color:var(--red)">PITANJA</span></h2></div>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-q">Koliko traje obuka za B kategoriju?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Kompletna obuka za B kategoriju traje prosečno 2–3 meseca. Teorija (40h) oko 2–3 nedelje, vožnja (40h) oko 2 meseca, zavisno od tvog rasporeda.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Koliko traje obuka za B kategoriju?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Kompletna obuka za B kategoriju traje prosečno 2–3 meseca. Teorija (40č) oko 2–3 nedelje, vožnja (40č) oko 2 meseca, zavisno od tvog rasporeda.</div></div></div>
     <div class="faq-item"><button class="faq-q">Da li mogu da platim na rate?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Da. Plaćanje je moguće gotovinom u više rata, čekovima, administrativnom zabranom ili bankarskim kreditom. Bez kamate i bez skrivenih troškova.</div></div></div>
-    <div class="faq-item"><button class="faq-q">Šta je potrebno za upis?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Za punoletne — važeća lična karta. Za maloletnike (od 16 god.) — lična karta i jedan roditelj/staratelj. Lekarski pregled organizujemo besplatno.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Šta je potrebno za upis?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Za punoletne — važeća lična karta. Za maloletnike (od 16 god.) — lična karta i jedan roditelj/staratelj.</div></div></div>
     <div class="faq-item"><button class="faq-q">Koliko važi položeni teorijski ispit?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">18 meseci. Ako u tom roku ne položite praktični deo, teorijski ispit se mora ponovo polagati.</div></div></div>
     <div class="faq-item"><button class="faq-q">Kako da saznam tačnu cenu obuke?<span class="arr">+</span></button><div class="faq-a"><div class="faq-a-inner">Cena se formira individualno — zavisi od kategorije i kategorija koje već posedujete. <a href="kontakt.html" style="color:var(--red);font-weight:700;">Kontaktirajte nas</a> ili nas pozovite, dobićete personalizovanu ponudu bez obaveze.</div></div></div>
   </div>
@@ -269,7 +429,7 @@
 <script src="falkon.js"></script>
 <script>
 function showCat(id){
-  document.querySelectorAll('.cat-tab').forEach((t,i)=>{ t.classList.toggle('active',['b','a1','a'][i]===id); });
+  document.querySelectorAll('.cat-tab').forEach((t,i)=>{ t.classList.toggle('active',['b','a1','a2','a'][i]===id); });
   document.querySelectorAll('.pricing-group').forEach(g=>g.classList.remove('active'));
   document.getElementById('grp-'+id).classList.add('active');
 }

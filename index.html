@@ -135,6 +135,24 @@
 .feat-icon-wrap{width:44px;height:44px;margin-bottom:16px;}
 .feat-icon-wrap svg{width:100%;height:100%;}
 
+/* ══ CATEGORIES ══ */
+.kats-section{padding:80px 8vw;background:var(--white);border-top:1px solid var(--border);}
+.kats-header{margin-bottom:48px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+.kats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1260px;margin:0 auto;align-items:start;}
+.kat-card{background:var(--bg);border:1px solid var(--border);border-top:4px solid var(--red);padding:14px 18px 12px;display:flex;flex-direction:column;gap:6px;transition:box-shadow .25s,transform .2s;text-decoration:none;color:inherit;}
+.kat-card:hover{box-shadow:0 12px 32px rgba(0,0,0,.08);transform:translateY(-4px);}
+.kat-card.cog{border-top-color:var(--cognac);}
+.kat-card-letter{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:1px;color:var(--red);line-height:.9;}
+.kat-card.cog .kat-card-letter{color:var(--cognac);}
+.kat-card-title{font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-top:-2px;}
+.kat-card-desc{font-size:12.5px;color:#555;line-height:1.5;margin:2px 0;}
+.kat-card-meta{display:flex;gap:10px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;border-top:1px solid var(--border);padding-top:7px;margin-top:2px;}
+.kat-card-meta strong{color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;font-weight:400;}
+.kat-card.cog .kat-card-meta strong{color:var(--cognac);}
+.kat-card-link{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-top:6px;}
+.kat-card.cog .kat-card-link{color:var(--cognac);}
+@media(max-width:720px){.kats-header{flex-direction:column;align-items:flex-start;}}
+
 /* ══ HOW ══ */
 .how-section{padding:80px 8vw;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .how-header{text-align:center;margin-bottom:56px;}
@@ -195,7 +213,7 @@
 </div>
 
 <!-- PHONE FAB -->
-<a href="tel:062170313" class="phone-fab" aria-label="Pozovite nas">
+<a href="tel:0621703133" class="phone-fab" aria-label="Pozovite nas">
   <div class="pulse-ring"></div>
   <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
 </a>
@@ -287,7 +305,7 @@
         </li>
         <li>
           <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8303a" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#c8303a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Besplatan lekarski pregled uz upis
+          Besplatna prva pomoć
         </li>
       </ul>
       <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
@@ -306,6 +324,46 @@
 
 
 <!-- CATEGORIES -->
+<section class="kats-section">
+  <div class="kats-header">
+    <div class="reveal">
+      <span class="section-eyebrow">Kategorije obuke</span>
+      <h2 class="section-title" style="font-size:clamp(38px,5vw,64px);">ŠTA <span style="color:var(--red)">VOZIŠ?</span></h2>
+      <p class="section-desc" style="margin-top:12px;max-width:520px;">Kod nas možeš da položiš za sve glavne kategorije — od skutera i lakših motocikala do automobila i jakih motora.</p>
+    </div>
+    <a href="cenovnik.html" class="btn-outline reveal-r">Vidi cenovnik →</a>
+  </div>
+  <div class="kats-grid">
+    <a href="cenovnik.html" class="kat-card reveal">
+      <div class="kat-card-letter">B</div>
+      <div class="kat-card-title">B — Putnička vozila</div>
+      <div class="kat-card-desc">Automobili i kombi vozila do 3.500 kg, do 9 sedišta. Najtraženija kategorija.</div>
+      <div class="kat-card-meta"><span>Upis <strong>16</strong></span><span>Vožnja <strong>40č</strong></span></div>
+      <span class="kat-card-link">Saznaj više →</span>
+    </a>
+    <a href="cenovnik.html" class="kat-card cog reveal" style="transition-delay:.08s">
+      <div class="kat-card-letter">A1</div>
+      <div class="kat-card-title">A1 — Lakši motocikli</div>
+      <div class="kat-card-desc">Motocikli do 125 cm³ i 11 kW. Prva motociklistička dozvola — već sa 16 godina.</div>
+      <div class="kat-card-meta"><span>Upis <strong>15</strong></span><span>Vožnja <strong>20č</strong></span></div>
+      <span class="kat-card-link">Saznaj više →</span>
+    </a>
+    <a href="cenovnik.html" class="kat-card cog reveal" style="transition-delay:.16s">
+      <div class="kat-card-letter">A2</div>
+      <div class="kat-card-title">A2 — Srednji motocikli</div>
+      <div class="kat-card-desc">Motocikli snage do 35 kW. Sledeći korak ka A kategoriji za 18-godišnjake.</div>
+      <div class="kat-card-meta"><span>Upis <strong>17</strong></span><span>Vožnja <strong>30č</strong></span></div>
+      <span class="kat-card-link">Saznaj više →</span>
+    </a>
+    <a href="cenovnik.html" class="kat-card cog reveal" style="transition-delay:.24s">
+      <div class="kat-card-letter">A</div>
+      <div class="kat-card-title">A — Svi motocikli</div>
+      <div class="kat-card-desc">Motocikli preko 15 kW — bez ograničenja. Najjača kategorija sa 24 godine.</div>
+      <div class="kat-card-meta"><span>Upis <strong>23</strong></span><span>Vožnja <strong>40č</strong></span></div>
+      <span class="kat-card-link">Saznaj više →</span>
+    </a>
+  </div>
+</section>
 
 
 <!-- HOW IT WORKS -->
@@ -384,7 +442,7 @@
         </svg>
       </div>
       <div class="feat-title">Moderna vozila</div>
-      <div class="feat-text">VW Golf 7 sa dvostrukom kontrolom. Bezbedna, moderna vozila za udobnu i efikasnu obuku.</div>
+      <div class="feat-text">Vozila sa dvostrukom kontrolom. Bezbedna, moderna vozila za udobnu i efikasnu obuku.</div>
     </div>
     <div class="feat-cell reveal">
       <div class="feat-icon-wrap">
@@ -414,8 +472,8 @@
           <circle cx="24" cy="20" r="5"/>
         </svg>
       </div>
-      <div class="feat-title">Besplatan pregled</div>
-      <div class="feat-text">Uz upis organizujemo besplatan lekarski pregled i kurs prve pomoći — bez dodatnih troškova.</div>
+      <div class="feat-title">Lokacija</div>
+      <div class="feat-text">Adresa je Vojvode Mišića 9, Kragujevac</div>
     </div>
     <div class="feat-cell reveal">
       <div class="feat-icon-wrap">
