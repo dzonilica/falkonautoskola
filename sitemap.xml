@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://falkonplus2023kg.com/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://falkonplus2023kg.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://falkonplus2023kg.com/"/>
+    <image:image>
+      <image:loc>https://falkonplus2023kg.com/images/hero-car.jpg</image:loc>
+      <image:title>Auto Škola Falkon Plus 2023 — Kragujevac</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://falkonplus2023kg.com/images/logo.png</image:loc>
+      <image:title>Logo Falkon Plus 2023</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://falkonplus2023kg.com/o-nama</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://falkonplus2023kg.com/o-nama"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://falkonplus2023kg.com/o-nama"/>
+    <image:image>
+      <image:loc>https://falkonplus2023kg.com/images/team.jpg</image:loc>
+      <image:title>Tim Auto Škole Falkon Plus 2023</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://falkonplus2023kg.com/cenovnik</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://falkonplus2023kg.com/cenovnik"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://falkonplus2023kg.com/cenovnik"/>
+  </url>
+  <url>
+    <loc>https://falkonplus2023kg.com/kontakt</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://falkonplus2023kg.com/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://falkonplus2023kg.com/kontakt"/>
+  </url>
+</urlset>
