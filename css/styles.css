@@ -772,7 +772,7 @@ section.block { padding: 90px 0; }
 .features { background: var(--cream); }
 .feat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 18px;
 }
 .feat-card {
@@ -781,7 +781,10 @@ section.block { padding: 90px 0; }
   padding: 32px;
   transition: all .3s;
   border: 1px solid var(--line);
+  grid-column: span 2;
 }
+.feat-card:nth-child(4),
+.feat-card:nth-child(5) { grid-column: span 3; }
 .feat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .feat-icon {
   width: 56px; height: 56px;
@@ -1129,6 +1132,7 @@ footer {
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .feat-grid { grid-template-columns: repeat(2, 1fr); }
+  .feat-card, .feat-card:nth-child(4), .feat-card:nth-child(5) { grid-column: auto; }
   .instr-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 50px; }
   .cta-grid { grid-template-columns: 1fr; gap: 40px; }
