@@ -261,24 +261,28 @@
       <div class="cta-right reveal">
         <h3>Pošalji upit</h3>
         <p class="subt">Popuni formu i javljamo se istog dana.</p>
-        <form onsubmit="return submitForm(event)">
+        <form id="kontaktForm" onsubmit="return submitForm(event)">
+          <input type="hidden" name="access_key" value="311c5663-90d7-4fd9-b853-cace53d778e7">
+          <input type="hidden" name="subject" value="Novi upit sa sajta — Falkon Plus 2023">
+          <input type="hidden" name="from_name" value="Falkon Plus 2023 — Kontakt forma">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;" aria-hidden="true">
           <div class="form-double">
             <div class="form-row">
               <label for="ime">Ime i prezime</label>
-              <input type="text" id="ime" required placeholder="Petar Petrović">
+              <input type="text" id="ime" name="ime" required placeholder="Petar Petrović">
             </div>
             <div class="form-row">
               <label for="tel">Telefon</label>
-              <input type="tel" id="tel" required placeholder="062 123 4567">
+              <input type="tel" id="tel" name="telefon" required placeholder="062 123 4567">
             </div>
           </div>
           <div class="form-row">
             <label for="email">Email (opciono)</label>
-            <input type="email" id="email" placeholder="ime@primer.com">
+            <input type="email" id="email" name="email" placeholder="ime@primer.com">
           </div>
           <div class="form-row">
             <label for="kategorija">Koja kategorija te zanima?</label>
-            <select id="kategorija" required>
+            <select id="kategorija" name="kategorija" required>
               <option value="">Izaberi kategoriju...</option>
               <option value="B">B Kategorija — Putnička vozila</option>
               <option value="A1">A1 Kategorija — Lakši motocikli</option>
@@ -289,9 +293,10 @@
           </div>
           <div class="form-row">
             <label for="poruka">Poruka (opciono)</label>
-            <textarea id="poruka" rows="4" placeholder="Trenutno posedujem dozvolu za..."></textarea>
+            <textarea id="poruka" name="poruka" rows="4" placeholder="Trenutno posedujem dozvolu za..."></textarea>
           </div>
-          <button type="submit" class="form-cta">Pošalji upit →</button>
+          <button type="submit" class="form-cta" id="formSubmit">Pošalji upit →</button>
+          <div id="formStatus" role="status" aria-live="polite" style="margin-top:14px;font-size:14px;font-weight:600;display:none;"></div>
         </form>
       </div>
     </div>

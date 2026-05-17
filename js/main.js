@@ -81,18 +81,45 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach(el => el.classList.add('in'));
 }
 
-// ===== Form submit (mailto fallback) =====
-function submitForm(e) {
+// ===== Form submit (Web3Forms) =====
+async function submitForm(e) {
   e.preventDefault();
-  const ime = document.getElementById('ime').value.trim();
-  const tel = document.getElementById('tel').value.trim();
-  const email = document.getElementById('email').value.trim();
+  const form = e.target;
+  const btn = document.getElementById('formSubmit');
+  const status = document.getElementById('formStatus');
   const kat = document.getElementById('kategorija').value;
-  const poruka = (document.getElementById('poruka') && document.getElementById('poruka').value.trim()) || '';
 
-  const subject = `Upit za vozačku obuku — ${kat || 'opšti'}`;
-  const body = `Ime: ${ime}\nTelefon: ${tel}\nEmail: ${email || '—'}\nKategorija: ${kat}\n\nPoruka:\n${poruka || '—'}`;
-  window.location.href = `mailto:falkonplus2023kragujevac@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const data = new FormData(form);
+  data.set('subject', `Novi upit — ${kat || 'opšti'} — Falkon Plus 2023`);
+
+  const showStatus = (msg, ok) => {
+    if (!status) return;
+    status.textContent = msg;
+    status.style.display = 'block';
+    status.style.color = ok ? '#1f7a3f' : '#c0392b';
+  };
+
+  if (btn) { btn.disabled = true; btn.textContent = 'Šaljem…'; }
+  showStatus('Šaljem upit…', true);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data,
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok && json.success) {
+      form.reset();
+      showStatus('Hvala! Upit je poslat — javljamo se u najkraćem roku.', true);
+      if (btn) btn.textContent = 'Poslato ✓';
+    } else {
+      throw new Error((json && json.message) || 'Greška pri slanju.');
+    }
+  } catch (err) {
+    showStatus('Slanje nije uspelo. Pozovi 062 17 03 133 ili piši na falkonplus2023kragujevac@outlook.com.', false);
+    if (btn) { btn.disabled = false; btn.textContent = 'Pošalji upit →'; }
+  }
   return false;
 }
 
